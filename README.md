@@ -8,17 +8,20 @@ It is designed as a portfolio case combining exploratory analysis, clinical risk
 
 ## Power BI style dashboard
 
-**[Open the interactive dashboard →](https://luandarodrigues.github.io/heart-disease-risk-prediction/)**
+**[Open the interactive dashboard →](https://luandarodrigues.github.io/heart-disease-risk-prediction/?v=5)**
 
 The dashboard was designed in a Power BI-inspired structure while keeping the same black, off-white and restrained accent palette used across the portfolio.
 
 It includes:
 
 - executive KPI cards;
+- bilingual PT/EN interface;
+- clinical variable dictionary;
+- clickable risk lens slicer;
 - clinical pattern comparison;
 - risk-factor group crossings;
 - model comparison between Logistic Regression and Random Forest;
-- feature-importance style view;
+- feature-importance view translated into clinical meaning;
 - data quality flags;
 - responsible-use and clinical limitation view.
 
@@ -52,7 +55,18 @@ The dataset includes age, sex, chest pain type, resting blood pressure, choleste
 
 ## Most relevant variables
 
-Permutation importance suggested the strongest signals were ST_Slope, ChestPainType, Sex, ExerciseAngina, Cholesterol, Oldpeak, FastingBS and RestingBP.
+Permutation importance suggested the strongest signals were related to:
+
+| Technical variable | Clinical meaning |
+|---|---|
+| ST_Slope | ST segment slope at peak exercise; strongest stress-test ECG signal in the model |
+| ChestPainType | Chest pain presentation, including asymptomatic and angina categories |
+| Sex | Registered patient sex |
+| ExerciseAngina | Exercise-induced angina, indicating pain/discomfort triggered by effort |
+| Cholesterol | Serum cholesterol; interpreted with caution because the dataset contains zero values |
+| Oldpeak | Exercise-induced ST depression |
+| FastingBS | Binary marker for fasting blood sugar > 120 mg/dL |
+| RestingBP | Resting blood pressure before testing |
 
 ## Clinical pattern examples
 
@@ -92,9 +106,14 @@ This is why the dashboard separates **model performance** from **clinical comple
 ```text
 heart-disease-risk-prediction/
 ├── README.md
+├── data/
+│   ├── heart.csv
+│   ├── model_metrics.csv
+│   ├── feature_importance_permutation.csv
+│   └── clinical_risk_factor_mapping_2026.csv
 ├── docs/
 │   └── index.html
-└── project files, scripts, data and outputs
+└── project files, scripts and outputs
 ```
 
 ## Tools
